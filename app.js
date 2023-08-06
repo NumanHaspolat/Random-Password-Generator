@@ -1,6 +1,7 @@
 const lenghtInp = document.getElementById("lenght");
 const generateBtn = document.querySelector(".generate-btn");
 const resultInp = document.querySelector(".result");
+const deleteBtn = document.querySelector(".delete")
 const values = [
   "A",
   "B",
@@ -92,22 +93,22 @@ const values = [
   "}",
 ];
 let total = "";
+let text = "";
+
+deleteBtn.addEventListener("click",()=>{
+  resultInp.value = ""
+})
 
 generateBtn.addEventListener("click", () => {
-  if (lenghtInp.value > 50 || lenghtInp.value < 0) {
+  if (lenghtInp.value > 30 || lenghtInp.value < 0) {
     lenghtInp.value = "";
-    alert("Lenght should be between 0 to 50");
+    alert("Lenght should be between 0 to 30");
     return;
   }
-  
-  for (let i = 1; i <= lenghtInp.value; i++) {
-    const randomNumber = Math.floor(Math.random() * 88);
-    let resultPass = values[randomNumber];
-    // console.log(resultPass);
-    total += resultPass;
-    resultInp.value = total;
-  }
-  const lenghtInpValue = Number(lenghtInp.value);
+
+  let newPass = generatePassword(lenghtInp.value);
+  resultInp.value = newPass;
+  text = resultInp.value;
   lenghtInp.value = "";
 });
 
@@ -125,3 +126,14 @@ function outFunc() {
   var tooltip = document.getElementById("myTooltip");
   tooltip.innerHTML = "Copy to clipboard";
 }
+
+const generatePassword = () => {
+  for (let i = 1; i <= lenghtInp.value; i++) {
+    const randomNumber = Math.floor(Math.random() * values.length);
+    let resultPass = values[randomNumber];
+    // console.log(resultPass);
+    total += resultPass;
+    resultInp.value = total;
+  }
+  return total;
+};
