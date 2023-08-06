@@ -1,7 +1,6 @@
 const lenghtInp = document.getElementById("lenght");
 const generateBtn = document.querySelector(".generate-btn");
 const resultInp = document.querySelector(".result");
-const deleteBtn = document.querySelector(".delete")
 const values = [
   "A",
   "B",
@@ -92,12 +91,8 @@ const values = [
   "{",
   "}",
 ];
-let total = "";
-let text = "";
 
-deleteBtn.addEventListener("click",()=>{
-  resultInp.value = ""
-})
+let text = "";
 
 generateBtn.addEventListener("click", () => {
   if (lenghtInp.value > 30 || lenghtInp.value < 0) {
@@ -110,6 +105,7 @@ generateBtn.addEventListener("click", () => {
   resultInp.value = newPass;
   text = resultInp.value;
   lenghtInp.value = "";
+  console.log(newPass);
 });
 
 function myFunction() {
@@ -128,12 +124,11 @@ function outFunc() {
 }
 
 const generatePassword = () => {
+  let total = "";
   for (let i = 1; i <= lenghtInp.value; i++) {
     const randomNumber = Math.floor(Math.random() * values.length);
     let resultPass = values[randomNumber];
-    // console.log(resultPass);
     total += resultPass;
-    resultInp.value = total;
   }
   return total;
 };
