@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="parent">
+      <h1 class="header">Random Password Generator</h1>
+      <div class="container">
+        <label for="lenght">Enter the Lenght</label>
+        <div class="generate-div">
+          <input type="number" id="lenght" placeholder="0 - 50" />
+          <button class="generate-btn">Generate</button>
+        </div>
+
+        <label for="myInput">Password Result</label>
+        <div class="copy-div">
+          <input type="text" id="myInput" class="result" placeholder="Result" />
+          <div class="tooltip">
+            <button onclick="myFunction()" onmouseout="outFunc()" class="copy">
+              <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+              Copy Password
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
