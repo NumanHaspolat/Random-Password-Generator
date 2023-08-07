@@ -77,6 +77,10 @@ input {
   margin-top: -32px;
 }
 
+.black{
+  background-color: black;
+}
+
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 140px;
@@ -92,6 +96,20 @@ input {
   margin-left: -75px;
   opacity: 0;
   transition: opacity 0.3s;
+}
+
+.eye-btn {
+  background-color: darkcyan;
+  color: white;
+  padding: 0.7rem;
+  position: relative;
+  top: -15.5px;
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.eye-btn:hover {
+  cursor: pointer;
 }
 
 .copy {

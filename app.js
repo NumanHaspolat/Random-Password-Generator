@@ -1,6 +1,7 @@
 const lenghtInp = document.getElementById("lenght");
 const generateBtn = document.querySelector(".generate-btn");
 const resultInp = document.querySelector(".result");
+const eyeBtn = document.querySelector(".eye-btn")
 const values = [
   "A",
   "B",
@@ -91,8 +92,12 @@ const values = [
   "{",
   "}",
 ];
-
 let text = "";
+
+eyeBtn.addEventListener("click",()=>{
+  const type = resultInp.getAttribute("type") === "password" ? "text" : "password"
+  resultInp.setAttribute("type" , type)
+})
 
 function myFunction() {
   var copyText = document.getElementById("myInput");
