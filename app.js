@@ -94,6 +94,15 @@ const values = [
 
 let text = "";
 
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  resultInp.select();
+  resultInp.setSelectionRange(0, 30);
+  navigator.clipboard.writeText(resultInp.value);
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copied";
+}
+
 generateBtn.addEventListener("click", () => {
   if (lenghtInp.value > 30 || lenghtInp.value < 0) {
     lenghtInp.value = "";
@@ -105,18 +114,13 @@ generateBtn.addEventListener("click", () => {
   resultInp.value = newPass;
   text = resultInp.value;
   lenghtInp.value = "";
-  console.log(newPass);
 });
 
-function myFunction() {
-  var copyText = document.getElementById("myInput");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(copyText.value);
-
-  var tooltip = document.getElementById("myTooltip");
-  tooltip.innerHTML = "Copied";
-}
+lenghtInp.addEventListener("keydown",()=>{
+  if(event.key === "Enter"){
+    generateBtn.click()
+  }
+})
 
 function outFunc() {
   var tooltip = document.getElementById("myTooltip");
